@@ -1,0 +1,60 @@
+Device g22v10;
+PIN 2 = RG;
+PIN 3 = FG;
+PIN 4 = NP;
+PIN 5 = TIME;
+PIN 6 = IGUAL;
+PIN 7 = FIN;
+PIN 8 = PCI;
+PIN 9 = S1;
+PIN 10 = S2;
+PIN 11 = S3;
+PIN 13 = S4;
+PIN 23 = WE;
+PIN 22 = CB;
+PIN 21 = CC;
+PIN 20 = RC;
+PIN 19 = PLAYING;
+PIN 18 = OE;
+PIN 17 = RT;
+PIN 16 = RP;
+PIN 15 = MS2; 
+PIN 14 = pp5;
+
+e0 = !S1 & !S2 & !S3 & !S4;
+e1 = S1 & !S2 & !S3 & !S4;
+e2 = !S1 & S2 & !S3 & !S4;
+e3 = S1 & S2 & !S3 & !S4;
+e4 = !S1 & !S2 & S3 & !S4;
+e5 = S1 & !S2 & S3 & !S4;
+e6 = !S1 & S2 & S3 & !S4;
+e7 = S1 & S2 & S3 & !S4;
+e8 = !S1 & !S2 & !S3 & S4;
+e9 = S1 & !S2 & !S3 & S4;
+e10 = S1 & S2 & !S3 & S4;
+
+E0 = (e0&!RG)#(!FG&e2)#e7#e8;
+E1 = (e0&RG);
+E2 = e1;
+E3 = (e2&FG);
+E4 = (e4&!NP)#(e4&!TIME)#(e9&!NP&TIME);
+E5 = (e4&NP&TIME);
+E6 = e5;
+E7 = (e6&!IGUAL);
+E8 = (e6&IGUAL&FIN);
+E9 = (e6&IGUAL&!FIN);
+
+WE = E1;
+CB = E1;
+CC = E2 # E9;
+RC = E3;
+PLAYING = E4 # E5 # E6 # E9;
+OE = E6;
+RT = E6;
+RP = E7;
+MS2 = E8;
+
+
+
+
+

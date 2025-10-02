@@ -1,0 +1,157 @@
+%SIGNAL
+PIN  22 =  CB 
+PIN  21 =  CC 
+PIN   3 =  FG 
+PIN   7 =  FIN 
+PIN   6 =  IGUAL 
+PIN  15 =  MS2 
+PIN   4 =  NP 
+PIN  18 =  OE 
+PIN   8 =  PCI 
+PIN  19 =  PLAYING 
+PIN  20 =  RC 
+PIN   2 =  RG 
+PIN  16 =  RP 
+PIN  17 =  RT 
+PIN   9 =  S1 
+PIN  10 =  S2 
+PIN  11 =  S3 
+PIN  13 =  S4 
+PIN   5 =  TIME 
+PIN  23 =  WE 
+PIN  14 =  pp5 
+%END
+
+%FIELD
+%END
+
+%EQUATION
+CB =>
+    RG & !S1 & !S2 & !S3 & !S4
+
+CC =>
+    S1 & !S2 & !S3 & !S4
+  # !FIN & IGUAL & !S1 & S2 & S3 & !S4
+
+E0 =>
+    !RG & !S1 & !S2 & !S3 & !S4
+  # !FG & !S1 & S2 & !S3 & !S4
+  # S1 & S2 & S3 & !S4
+  # !S1 & !S2 & !S3 & S4
+
+E1 =>
+    RG & !S1 & !S2 & !S3 & !S4
+
+E2 =>
+    S1 & !S2 & !S3 & !S4
+
+E3 =>
+    FG & !S1 & S2 & !S3 & !S4
+
+E4 =>
+    !NP & !S1 & !S2 & S3 & !S4
+  # !S1 & !S2 & S3 & !S4 & !TIME
+  # !NP & S1 & !S2 & !S3 & S4 & TIME
+
+E5 =>
+    NP & !S1 & !S2 & S3 & !S4 & TIME
+
+E6 =>
+    S1 & !S2 & S3 & !S4
+
+E7 =>
+    !IGUAL & !S1 & S2 & S3 & !S4
+
+E8 =>
+    FIN & IGUAL & !S1 & S2 & S3 & !S4
+
+E9 =>
+    !FIN & IGUAL & !S1 & S2 & S3 & !S4
+
+MS2 =>
+    FIN & IGUAL & !S1 & S2 & S3 & !S4
+
+OE =>
+    S1 & !S2 & S3 & !S4
+
+PLAYING =>
+    !NP & !S1 & !S2 & S3 & !S4
+  # !S1 & !S2 & S3 & !S4 & !TIME
+  # !NP & S1 & !S2 & !S3 & S4 & TIME
+  # NP & !S1 & !S2 & S3 & !S4 & TIME
+  # S1 & !S2 & S3 & !S4
+  # !FIN & IGUAL & !S1 & S2 & S3 & !S4
+
+RC =>
+    FG & !S1 & S2 & !S3 & !S4
+
+RP =>
+    !IGUAL & !S1 & S2 & S3 & !S4
+
+RT =>
+    S1 & !S2 & S3 & !S4
+
+WE =>
+    RG & !S1 & !S2 & !S3 & !S4
+
+e0 =>
+    !S1 & !S2 & !S3 & !S4
+
+e1 =>
+    S1 & !S2 & !S3 & !S4
+
+e2 =>
+    !S1 & S2 & !S3 & !S4
+
+e3 =>
+    S1 & S2 & !S3 & !S4
+
+e4 =>
+    !S1 & !S2 & S3 & !S4
+
+e5 =>
+    S1 & !S2 & S3 & !S4
+
+e6 =>
+    !S1 & S2 & S3 & !S4
+
+e7 =>
+    S1 & S2 & S3 & !S4
+
+e8 =>
+    !S1 & !S2 & !S3 & S4
+
+e9 =>
+    S1 & !S2 & !S3 & S4
+
+e10 =>
+    S1 & S2 & !S3 & S4
+
+CB.oe  =>
+    1 
+
+CC.oe  =>
+    1 
+
+MS2.oe  =>
+    1 
+
+OE.oe  =>
+    1 
+
+PLAYING.oe  =>
+    1 
+
+RC.oe  =>
+    1 
+
+RP.oe  =>
+    1 
+
+RT.oe  =>
+    1 
+
+WE.oe  =>
+    1 
+
+%END
